@@ -1,34 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree, Montserrat } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
-// larken (display serif) -> Fraunces; degular (sans) -> Figtree
-const fraunces = Fraunces({
-  variable: "--font-serif",
+// Single committed family — modern grotesque with optical sizing.
+// Weight contrast (not italic serifs) carries the hierarchy.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const figtree = Figtree({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  variable: "--font-mont",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Home - Whissel Beer Group | San Diego",
+  title: "Texas Ace Team — DFW Real Estate",
   description:
-    "The #1 residential real estate team in San Diego County. Bringing you more options, deeper expertise and proven results.",
+    "A team of realtors in the Dallas–Fort Worth area. Buying, selling, done right.",
 };
 
 export default function RootLayout({
@@ -39,9 +25,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${figtree.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${bricolage.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#ede5dd] text-[#2a241f]">
+      <body className="min-h-full flex flex-col bg-[#f4f3f0] text-[#161311]">
         {children}
       </body>
     </html>

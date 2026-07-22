@@ -1,121 +1,52 @@
-"use client";
-
-import { useState, type ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const AREAS = [
-  { name: "North County Coastal", img: "/images/areas/carlsbad.jpg" },
-  { name: "North County Inland", img: "/images/areas/san-marcos.jpg" },
-  { name: "North Central", img: "/images/areas/escondido.jpg" },
-  { name: "East County", img: "/images/areas/alpine.jpg" },
-  { name: "Central", img: "/images/areas/san-diego-downtown.jpg" },
-  { name: "Coastal Metro / Uptown", img: "/images/areas/solana-beach.jpg" },
-  { name: "South Bay", img: "/images/areas/coronado.jpg" },
-  { name: "Riverside County", img: "/images/areas/riverside.jpg" },
-  { name: "Explore more", img: "/images/areas/del-mar.jpg" },
+  { name: "Flower Mound", img: "/texasace/prop-2.jpg" },
+  { name: "McKinney", img: "/texasace/prop-3.webp" },
+  { name: "Frisco", img: "/texasace/prop-1.jpg" },
+  { name: "Plano", img: "/texasace/prop-4.jpg" },
+  { name: "Rockwall", img: "/texasace/prop-2.jpg" },
+  { name: "Rowlett", img: "/texasace/prop-3.webp" },
+  { name: "Lucas", img: "/texasace/prop-1.jpg" },
+  { name: "Dallas", img: "/texasace/prop-4.jpg" },
 ];
 
-const REGIONS = [
-  { label: "North County\nCoastal", x: "8%", y: "42%" },
-  { label: "North County\nInland", x: "40%", y: "20%" },
-  { label: "North\nCentral", x: "40%", y: "48%" },
-  { label: "East\nCounty", x: "74%", y: "30%" },
-  { label: "Central", x: "45%", y: "68%" },
-  { label: "South\nBay", x: "52%", y: "88%" },
-];
-
-/** Shown only if the real map SVG fails to load. */
-function MapFallback() {
+export function AreaGuides() {
   return (
-    <div className="relative aspect-[4/5] w-full">
-      <div className="absolute inset-0 [clip-path:polygon(30%_0,70%_2%,72%_10%,88%_18%,100%_40%,92%_55%,80%_58%,78%_72%,60%_78%,58%_96%,44%_100%,40%_84%,26%_74%,10%_58%,4%_36%,18%_26%,22%_10%)] bg-[#3a352f]" />
-      {REGIONS.map((r) => (
-        <span
-          key={r.label}
-          className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-pre text-center font-serif-display text-lg leading-tight text-white/90"
-          style={{ left: r.x, top: r.y }}
-        >
-          {r.label}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-export function AreaGuides({ map }: { map?: ReactNode }) {
-  const [tab, setTab] = useState<"exclusive" | "match">("exclusive");
-
-  return (
-    <section className="relative overflow-hidden bg-[#ede5dd] pb-28">
-      {/* toggle bar */}
-      <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-6 px-6 py-16 lg:flex-row lg:justify-between lg:px-10">
-        <h3 className="font-serif-display text-2xl italic text-[#23201c] lg:text-3xl">
-          See what&rsquo;s on the market
-        </h3>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setTab("exclusive")}
-            className={`rounded-full px-7 py-3.5 font-mont text-[13px] font-semibold tracking-wide transition-colors ${
-              tab === "exclusive"
-                ? "bg-[#23201c] text-white"
-                : "border border-[#23201c]/25 text-[#23201c] hover:border-[#23201c]/60"
-            }`}
-          >
-            EXCLUSIVE PROPERTIES
-          </button>
-          <button
-            onClick={() => setTab("match")}
-            className={`rounded-full px-7 py-3.5 font-mont text-[13px] font-semibold tracking-wide transition-colors ${
-              tab === "match"
-                ? "bg-[#23201c] text-white"
-                : "border border-[#23201c]/25 text-[#23201c] hover:border-[#23201c]/60"
-            }`}
-          >
-            HOME MATCH&trade;
-          </button>
-        </div>
-      </div>
-
-      {/* guide grid + map */}
-      <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
-        <div>
-          <p className="font-mont text-sm uppercase tracking-[0.2em] text-[#c75912]">
-            Your guide to living
-          </p>
-          <h2 className="mt-3 font-serif-display text-5xl italic leading-[1.05] text-[#23201c] lg:text-6xl">
-            In Sunny San Diego
+    <section className="bg-[#f4f3f0] py-24">
+      <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6" data-reveal>
+          <h2 className="font-serif-display text-5xl font-extrabold sm:text-6xl leading-[0.9] text-[#161311] lg:text-8xl">
+            Every corner
+            <br />
+            <span className="font-light text-[#6b6560]">of DFW.</span>
           </h2>
-          <p className="mt-6 max-w-lg font-mont text-[15px] leading-relaxed text-[#5a534b]">
-            Local expertise, neighborhood insight, and real homes waiting for you.
-            Learn more about the cities, neighborhoods, and communities we serve
-            throughout San Diego County, each with its own personality, charm, and
-            opportunities.
-          </p>
-
-          <div className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {AREAS.map((a) => (
-              <a
-                key={a.name}
-                href="#"
-                className="group relative flex h-16 items-center overflow-hidden rounded-lg"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${a.img})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#23201c]/85 to-[#23201c]/30" />
-                <span className="relative flex w-full items-center justify-between px-4 font-mont text-[13px] font-medium leading-tight text-white">
-                  {a.name}
-                  <ArrowUpRight className="h-4 w-4 shrink-0 opacity-80" />
-                </span>
-              </a>
-            ))}
-          </div>
+          <a
+            href="#"
+            className="rounded-full bg-[#161311] px-8 py-4 font-mont text-[13px] font-semibold tracking-widest text-white transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            EXPLORE AREAS
+          </a>
         </div>
 
-        {/* Real San Diego interactive map (inline SVG) */}
-        <div className="relative hidden w-full lg:block">
-          {map ?? <MapFallback />}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" data-reveal-group>
+          {AREAS.map((a) => (
+            <a
+              key={a.name}
+              href="#"
+              className="group relative flex aspect-[3/4] items-end overflow-hidden rounded-xl"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-[800ms] group-hover:scale-110"
+                style={{ backgroundImage: `url(${a.img})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#161311]/85 via-[#161311]/10 to-transparent" />
+              <span className="relative flex w-full items-center justify-between p-5 font-serif-display text-xl font-semibold text-white">
+                {a.name}
+                <ArrowUpRight className="h-5 w-5 shrink-0 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const STATS = [
-  { value: "$7B+", label: "Sold" },
-  { value: "8,000+", label: "Families Served" },
-  { value: "3,000+", label: "5 Star Reviews (Google/Zillow/Yelp)" },
-  { value: "#1", label: "Team in San Diego" },
+  { value: "$120M+", label: "Total Volume in 2025" },
+  { value: "250+", label: "Transactions in 2025" },
+  { value: "90+", label: "Leases in 2025" },
+  { value: "500+", label: "Satisfied Reviews" },
 ];
 
 export function Hero() {
@@ -25,41 +25,32 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#5a534b] text-white">
-      {/* Background video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover opacity-60"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/balboa-park.jpg"
-      >
-        <source src="/videos/hero-san-diego.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-[#23201c]/70" />
+    <section className="relative overflow-hidden bg-[#6b6560] text-white">
+      {/* Background team image */}
+      <div
+        className="absolute inset-0 h-full w-full bg-cover bg-center opacity-70"
+        style={{ backgroundImage: "url(/texasace/team-hero.jpg)" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#161311]/70 via-[#161311]/55 to-[#161311]/85" />
 
       <div className="relative mx-auto flex min-h-[92vh] max-w-[1600px] flex-col justify-center px-6 pb-40 pt-32 text-center lg:px-10">
-        <h1 className="font-serif-display text-[46px] font-light leading-[1.05] sm:text-6xl lg:text-[76px]">
-          #1 Residential Real Estate Team
+        <h1 className="font-serif-display text-[15vw] font-extrabold leading-[0.92] [text-wrap:balance] sm:text-7xl lg:text-[112px]">
+          Realtors in
           <br />
-          <span className="italic">in San Diego County</span>
+          <span className="font-light text-white/80">the DFW area</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl font-mont text-base text-white/85 lg:text-lg">
-          Bringing you more options, deeper expertise and proven results.
-        </p>
-        <div className="mt-9 flex items-center justify-center gap-4">
+        <div className="mt-10 flex items-center justify-center gap-4">
           <a
             href="#"
-            className="rounded-full bg-[#ede5dd] px-8 py-3.5 font-mont text-[13px] font-semibold tracking-widest text-[#23201c] transition-colors hover:bg-white"
+            className="rounded-full bg-[#c75912] px-8 py-4 font-mont text-[13px] font-semibold tracking-widest text-white transition-transform duration-300 hover:-translate-y-0.5"
           >
-            SELL A HOME
+            READ OUR STORY
           </a>
           <a
             href="#"
-            className="rounded-full border border-white/50 px-8 py-3.5 font-mont text-[13px] font-semibold tracking-widest text-white transition-colors hover:bg-white/10"
+            className="rounded-full border border-white/40 px-8 py-4 font-mont text-[13px] font-semibold tracking-widest text-white transition-colors hover:bg-white/10"
           >
-            BUY A HOME
+            CONTACT US
           </a>
         </div>
 
@@ -72,10 +63,10 @@ export function Hero() {
         >
           {STATS.map((s) => (
             <div key={s.label} className="px-4 text-center">
-              <div className="font-serif-display text-4xl font-light lg:text-6xl">
+              <div className="font-serif-display text-4xl font-bold tracking-tight lg:text-6xl">
                 {s.value}
               </div>
-              <div className="mx-auto mt-2 max-w-[200px] font-mont text-xs uppercase tracking-wide text-white/70 lg:text-sm">
+              <div className="mx-auto mt-2 max-w-[200px] font-mont text-[11px] uppercase tracking-[0.15em] text-white/60 lg:text-xs">
                 {s.label}
               </div>
             </div>

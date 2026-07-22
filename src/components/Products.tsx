@@ -1,74 +1,57 @@
-"use client";
-
-import { useRef } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const CARDS = [
-  { title: "Sell a home", desc: "Maximize your home's value with smart marketing and expert negotiation.", img: "/images/products/sell.jpg" },
-  { title: "Buy a home", desc: "Navigate the market with confidence, guided by local expertise and proven strategy.", img: "/images/products/buy.jpg" },
-  { title: "Home evaluation", desc: "Discover your home's current value with our quick, data-backed evaluation tool.", img: "/images/products/home-eval.jpg" },
-  { title: "Cancellation guarantee", desc: "Not satisfied? Cancel your listing agreement anytime, no questions asked.", img: "/images/products/guarantee.jpg" },
+  { n: "01", title: "Buying", desc: "Find the one that fits.", img: "/texasace/prop-1.jpg" },
+  { n: "02", title: "Selling", desc: "Priced right, sold fast.", img: "/texasace/prop-2.jpg" },
+  { n: "03", title: "Commercial", desc: "Grow your portfolio.", img: "/texasace/prop-3.webp" },
 ];
 
 export function Products() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const scrollBy = (dir: number) => {
-    trackRef.current?.scrollBy({ left: dir * 480, behavior: "smooth" });
-  };
-
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1c1a17] via-[#241f1a] to-[#3d2412] py-24 text-white">
-      <div className="mx-auto max-w-[1600px] px-6 text-center lg:px-10">
-        <h2 className="font-serif-display text-4xl leading-tight lg:text-[56px]">
-          Products built to deliver results
+    <section className="bg-[#100d0b] py-24 text-white">
+      <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <h2 className="font-serif-display text-5xl font-extrabold sm:text-6xl leading-[0.9] lg:text-8xl" data-reveal>
+          What we do
         </h2>
-        <p className="mt-3 font-mont text-base text-white/70">
-          Your Goals. Our Expertise.
-        </p>
-      </div>
 
-      <div className="relative mt-14">
-        <button
-          onClick={() => scrollBy(-1)}
-          aria-label="Previous"
-          className="absolute left-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-[#ede5dd] text-[#c75912] shadow-lg transition hover:scale-105"
-        >
-          <ArrowLeft className="h-5 w-5" />
-        </button>
-        <button
-          onClick={() => scrollBy(1)}
-          aria-label="Next"
-          className="absolute right-4 top-1/2 z-10 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-[#ede5dd] text-[#c75912] shadow-lg transition hover:scale-105"
-        >
-          <ArrowRight className="h-5 w-5" />
-        </button>
-
-        <div
-          ref={trackRef}
-          className="wbg-hide-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto px-[8vw] pb-4"
-        >
+        {/* Expanding image panels */}
+        <div className="mt-14 flex flex-col gap-3 lg:h-[70vh] lg:flex-row" data-reveal-group>
           {CARDS.map((c) => (
-            <article
+            <a
               key={c.title}
-              className="group relative aspect-[3/4] w-[78vw] max-w-[460px] shrink-0 snap-center overflow-hidden rounded-2xl sm:w-[460px]"
+              href="#"
+              className="group relative flex min-h-[320px] flex-1 overflow-hidden rounded-2xl transition-[flex-grow] duration-700 ease-out lg:min-h-0 lg:hover:grow-[2.6]"
             >
               <Image
                 src={c.img}
                 alt={c.title}
                 fill
-                sizes="460px"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width:1024px) 100vw, 40vw"
+                className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-8">
-                <h3 className="font-serif-display text-4xl">{c.title}</h3>
-                <p className="mt-3 max-w-sm font-mont text-sm leading-relaxed text-white/80">
-                  {c.desc}
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+
+              <div className="relative flex w-full flex-col justify-between p-7">
+                <span className="font-mont text-sm font-semibold tracking-widest text-white/60">
+                  {c.n}
+                </span>
+
+                <div>
+                  <div className="flex items-end justify-between gap-4">
+                    <h3 className="font-serif-display text-4xl font-extrabold leading-none lg:text-6xl">
+                      {c.title}
+                    </h3>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#c75912] transition-transform duration-300 group-hover:-translate-y-1">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <p className="mt-3 max-w-xs font-mont text-base text-white/85 opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100">
+                    {c.desc}
+                  </p>
+                </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>

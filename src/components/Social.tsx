@@ -4,12 +4,12 @@ import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useRef } from "react";
 
 const REELS = [
-  { img: "/images/products/home-eval.jpg", label: "" },
-  { img: "/images/areas/carlsbad.jpg", label: "" },
-  { img: "/images/areas/coronado.jpg", label: "OCEANSIDE" },
-  { img: "/images/products/sell.jpg", label: "US" },
-  { img: "/images/areas/del-mar.jpg", label: "" },
-  { img: "/images/areas/solana-beach.jpg", label: "" },
+  { img: "/texasace/media-1.jpg", label: "" },
+  { img: "/texasace/media-2.jpg", label: "" },
+  { img: "/texasace/media-3.jpg", label: "" },
+  { img: "/texasace/prop-1.jpg", label: "" },
+  { img: "/texasace/prop-2.jpg", label: "" },
+  { img: "/texasace/prop-4.jpg", label: "" },
 ];
 
 export function Social() {
@@ -18,14 +18,14 @@ export function Social() {
     trackRef.current?.scrollBy({ left: dir * 320, behavior: "smooth" });
 
   return (
-    <section className="relative overflow-hidden bg-[#23201c] py-20 text-white">
+    <section className="relative overflow-hidden bg-[#161311] py-20 text-white">
       <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
         <div className="flex items-start justify-between">
           <div>
             <h2 className="font-serif-display text-4xl lg:text-6xl">
-              Let&rsquo;s get social
+              Media Projects
             </h2>
-            <p className="mt-3 font-mont text-[#c75912]">@whisselbeergroup</p>
+            <p className="mt-3 font-mont text-[#c75912]">@texasaceteam</p>
           </div>
           <div className="hidden gap-3 lg:flex">
             <button

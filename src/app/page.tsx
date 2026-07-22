@@ -1,34 +1,43 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { FeaturedOn } from "@/components/FeaturedOn";
-import { AreaGuides } from "@/components/AreaGuides";
-import { SanDiegoMap } from "@/components/SanDiegoMap";
-import { Products } from "@/components/Products";
-import { Testimonials } from "@/components/Testimonials";
 import { About } from "@/components/About";
-import { CtaBanner } from "@/components/CtaBanner";
+import { Products } from "@/components/Products";
+import { AreaGuides } from "@/components/AreaGuides";
+import { FeaturedListings } from "@/components/FeaturedListings";
+import { FeaturedOn } from "@/components/FeaturedOn";
+import { Gallery } from "@/components/Gallery";
 import { Social } from "@/components/Social";
+import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
 import { SearchBar } from "@/components/SearchBar";
-import { FloatingPhone } from "@/components/FloatingPhone";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 export default function Home() {
   return (
-    <>
+    <SmoothScroll>
       <Header />
       <main className="flex-1">
+        {/* Hook */}
         <Hero />
-        <FeaturedOn />
-        <AreaGuides map={<SanDiegoMap />} />
-        <Products />
-        <Testimonials />
+        {/* Who we are */}
         <About />
-        <CtaBanner />
+        {/* What we do */}
+        <Products />
+        {/* Where we work */}
+        <AreaGuides />
+        {/* Proof — real listings */}
+        <FeaturedListings />
+        {/* Trust — reviews */}
+        <FeaturedOn />
+        {/* Immersion */}
+        <Gallery />
+        {/* Culture */}
         <Social />
+        {/* The ask */}
+        <CtaBanner />
         <Footer />
       </main>
       <SearchBar />
-      <FloatingPhone />
-    </>
+    </SmoothScroll>
   );
 }

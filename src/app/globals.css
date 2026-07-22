@@ -7,14 +7,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
-  --font-mont: var(--font-mont), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-serif);
-  --color-almond: #ede5dd;
-  --color-almond-dark: #ded3c7;
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-bricolage);
+  --color-paper: #f4f3f0;
+  --color-paper-dark: #e7e4de;
   --color-brand-orange: #c75912;
-  --color-ink: #23201c;
+  --color-ink: #161311;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -131,16 +130,34 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
   }
 }
 
-/* --- Whissel Beer Group helpers --- */
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* --- type helpers (single grotesque family) --- */
 .font-serif-display {
-  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
 }
 .font-mont {
-  font-family: var(--font-mont), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
 }
 
 @keyframes wbg-marquee {

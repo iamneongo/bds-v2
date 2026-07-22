@@ -3,32 +3,27 @@ export function CtaBanner() {
     <section className="relative overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/balboa-park.jpg)" }}
+        style={{ backgroundImage: "url(/texasace/prop-4.jpg)" }}
       />
-      <div className="absolute inset-0 bg-[#23201c]/55" />
-      <div className="relative mx-auto max-w-[1600px] px-6 py-28 text-center text-white lg:px-10 lg:py-36">
-        <h2 className="font-serif-display text-5xl leading-[1.08] lg:text-7xl">
-          Simplify your next move
+      <div className="absolute inset-0 bg-[#161311]/60" />
+      <div className="relative mx-auto flex min-h-[70vh] max-w-[1600px] flex-col items-center justify-center px-6 py-28 text-center text-white lg:px-10">
+        <h2 className="font-serif-display text-[13vw] font-extrabold leading-[0.9] [text-wrap:balance] lg:text-[104px]">
+          Your move.
           <br />
-          <span className="italic">with trusted local experts</span>
+          <span className="font-light text-white/75">Top dollar.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl font-mont text-base leading-relaxed text-white/85">
-          Whether you&rsquo;re planning your first move or your next one, our team
-          is here to make it simple and successful. Reach out today and experience
-          real estate done right.
-        </p>
-        <div className="mt-9 flex items-center justify-center gap-4">
+        <div className="mt-10 flex items-center justify-center gap-4">
           <a
             href="#"
-            className="rounded-full bg-[#ede5dd] px-8 py-3.5 font-mont text-[13px] font-semibold tracking-widest text-[#23201c] transition-colors hover:bg-white"
+            className="rounded-full bg-[#c75912] px-8 py-3.5 font-mont text-[13px] font-semibold tracking-widest text-[#161311] transition-colors hover:bg-[#e0763a]"
           >
-            BUY WITH US
+            WORK WITH US
           </a>
           <a
             href="#"
             className="rounded-full border border-white/50 px-8 py-3.5 font-mont text-[13px] font-semibold tracking-widest text-white transition-colors hover:bg-white/10"
           >
-            SELL WITH US
+            CONTACT US
           </a>
         </div>
       </div>

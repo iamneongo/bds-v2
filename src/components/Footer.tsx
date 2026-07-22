@@ -9,42 +9,39 @@ const SOCIALS: { label: string; path: string }[] = [
 ];
 
 const OFFICES = [
-  ["15932 Bernardo Center Drive", "San Diego, CA 92127"],
-  ["5857 Owens Avenue #300", "Carlsbad, CA 92008"],
-  ["3180 University Avenue Ste 600", "San Diego, CA 92104"],
-  ["8371 La Mesa Blvd", "La Mesa, CA 91942"],
-  ["41877 Enterprise Cir N #200", "Temecula, CA 92590"],
+  ["Texas Ace Team — eXp Realty", "7005 Chase Oaks Blvd, Suite 120"],
+  ["Plano, TX 75025", "Serving the DFW metroplex"],
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-[#2a2521] pb-28 pt-20 text-white">
+    <footer className="bg-[#17130f] pb-28 pt-20 text-white">
       <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
         <div className="grid items-center gap-10 border-b border-white/10 pb-14 lg:grid-cols-3">
           <div className="text-center lg:text-left">
-            <p className="font-serif-display text-2xl text-[#d9b48f]">Phone:</p>
-            <a href="tel:6196484700" className="mt-3 inline-block font-mont text-lg text-white/90 hover:text-[#c75912]">
-              619-648-4700
+            <p className="font-serif-display text-2xl text-[#c75912]">Phone:</p>
+            <a href="tel:9723576260" className="mt-3 inline-block font-mont text-lg text-white/90 hover:text-[#c75912]">
+              (972) 357-6260
             </a>
           </div>
           <div className="flex justify-center">
             <Image
-              src="/images/logo-white-orange.png"
-              alt="Whissel Beer Group"
-              width={320}
-              height={62}
-              className="h-14 w-auto"
+              src="/texasace/logo.png"
+              alt="Texas Ace Team"
+              width={340}
+              height={100}
+              className="h-16 w-auto brightness-0 invert"
             />
           </div>
           <div className="text-center lg:text-right">
-            <p className="font-serif-display text-2xl text-[#d9b48f]">Email:</p>
-            <a href="mailto:info@thewbgroup.com" className="mt-3 inline-block font-mont text-lg text-white/90 hover:text-[#c75912]">
-              info@thewbgroup.com
+            <p className="font-serif-display text-2xl text-[#c75912]">Email:</p>
+            <a href="mailto:info@texasaceteam.com" className="mt-3 inline-block font-mont text-lg text-white/90 hover:text-[#c75912]">
+              info@texasaceteam.com
             </a>
           </div>
         </div>
 
-        <div className="grid gap-8 border-b border-white/10 py-12 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid gap-8 border-b border-white/10 py-12 sm:grid-cols-2">
           {OFFICES.map((o) => (
             <div key={o[0]} className="text-center">
               <MapPin className="mx-auto mb-3 h-5 w-5 text-[#c75912]" />
@@ -70,7 +67,7 @@ export function Footer() {
             ))}
           </div>
           <p className="font-mont text-xs text-white/60">
-            Created with <span className="text-[#c75912]">♥</span> by AgentFire
+            © Texas Ace Team LLC. All rights reserved.
           </p>
         </div>
       </div>
